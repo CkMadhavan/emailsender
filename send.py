@@ -11,7 +11,10 @@ def index(to):
         email = os.environ['EMAIL_ADDRESS']
         password = os.environ['PASSWORD']
         emailto = to
-        server = smtplib.SMTP('smpt.gmail.com:587')
+        subject = 'Hi'
+        msg = 'Catch dem liars'
+        
+        server = smtplib.SMTP('smtp.gmail.com:587')
         server.ehlo()
         server.starttls()
         server.login(email , password)

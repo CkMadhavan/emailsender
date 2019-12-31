@@ -4,15 +4,15 @@ import smtplib
 
 app = Flask(__name__)
 
-@app.route('/<to>')
-def index(to):
+@app.route('/<vars>')
+def index(vars):
     try:
         
         email = os.environ['EMAIL_ADDRESS']
         password = os.environ['PASSWORD']
-        emailto = to
-        subject = 'Hi'
-        msg = 'Catch dem liars'
+        emailto = vars.split('|-|-|-|-|-|')[0]
+        subject = vars.split('|-|-|-|-|-|')[1]
+        msg = vars.split('|-|-|-|-|-|')[2]
         
         server = smtplib.SMTP('smtp.gmail.com:587')
         server.ehlo()
@@ -21,11 +21,8 @@ def index(to):
         message = 'Subject: {}\n\n{}'.format(subject , msg)
         server.sendmail(email , to,message)
         server.quit()
-        if code == 250:
-            return 'Succefully Sent Email From {} To {}'.format(email,to)
-        else:
-            return 'Invalid Email Address'
-        return 
+        
+        return 'Succefully Sent Email From {} To {}'.format(email,to)
         
     except Exception as e:
         return str(e)

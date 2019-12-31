@@ -21,7 +21,7 @@ def index(to):
         return 'Succefully Sent Email From {} To {}'.format(email,to)
         
     except Exception as e:
-        return e
+        return str(e)
    
 if __name__ == "__main__":
     app.run()

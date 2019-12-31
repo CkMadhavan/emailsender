@@ -10,7 +10,7 @@ def index(vars):
         
         email = os.environ['EMAIL_ADDRESS']
         password = os.environ['PASSWORD']
-        emailto = vars.split('|-|-|-|-|-|')[0]
+        to = vars.split('|-|-|-|-|-|')[0]
         subject = vars.split('|-|-|-|-|-|')[1]
         msg = vars.split('|-|-|-|-|-|')[2]
         

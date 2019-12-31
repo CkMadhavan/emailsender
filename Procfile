@@ -1,1 +1,1 @@
-web: gunicorn dotm:app
+web: gunicorn send:app

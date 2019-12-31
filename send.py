@@ -18,11 +18,10 @@ def index(to):
         message = 'Subject: {}\n\n{}'.format(subject , msg)
         server.sendmail(email , to,message)
         server.quit()
+        return 'Succefully Sent Email From {} To {}'.format(email,to)
         
-    except:
-        pass
-    
-    return ''
+    except Exception as e:
+        return e
    
 if __name__ == "__main__":
     app.run()

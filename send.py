@@ -14,6 +14,11 @@ def index(vars):
         subject = vars.split('|-|-|-|-|-|')[1]
         msg = vars.split('|-|-|-|-|-|')[2]
         
+        subject = subject.replace('nextline' , '\n')
+        subject = subject.replace('_' , ' ')
+        msg = msg.replace('nextline' , '\n')
+        msg = msg.replace('_' , ' ')
+        
         server = smtplib.SMTP('smtp.gmail.com:587')
         server.ehlo()
         server.starttls()

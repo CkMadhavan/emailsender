@@ -2,9 +2,13 @@ from flask import Flask , render_template,request , redirect , url_for
 import os
 import smtplib
 
+from flask_cors import CORS, cross_origin
 app = Flask(__name__)
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 @app.route('/<vars>')
+@cross_origin()
 def index(vars):
     try:
         

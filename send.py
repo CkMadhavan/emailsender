@@ -7,13 +7,13 @@ app = Flask(__name__)
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
-@app.route('/<vars>')
+@app.route('/<addrno>/<vars>')
 @cross_origin()
-def index(vars):
+def index(addrno,vars):
     try:
         
-        email = os.environ['EMAIL_ADDRESS']
-        password = os.environ['PASSWORD']
+        email = os.environ['EMAIL_ADDRESS' + str(addrno)]
+        password = os.environ['PASSWORD' + str(addrno)]
         to = vars.split('|-|-|-|-|-|')[0]
         subject = vars.split('|-|-|-|-|-|')[1]
         msg = vars.split('|-|-|-|-|-|')[2]
